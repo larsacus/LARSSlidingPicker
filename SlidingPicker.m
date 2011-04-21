@@ -35,6 +35,8 @@
 @implementation SlidingPicker
 
 @synthesize hidden;
+@synthesize otherPicker = _otherPicker;
+@synthesize auxView = _auxView;
 
 - (id)initWithFrame:(CGRect)frame {
     
@@ -56,41 +58,56 @@
 }
 
 -(void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker withAdditionalView:(UIView *)view{
-	
+	[self setAuxView:view];
+    [self setOtherPicker:otherPicker];
 	if ([self isHidden]) {
 		//animate picker on screen
-		[UIView animateWithDuration:ANIMATION_DURATION 
-							  delay:0 
-							options:UIViewAnimationOptionCurveEaseIn
-						 animations:^{
-							 self.frame = CGRectOffset(self.frame, 0, -self.frame.size.height);
-							 view.frame = CGRectOffset(view.frame, 0, -self.frame.size.height);
-						 }
-						 completion:^(BOOL finished){
-							 [self setHidden:NO];
-							 if (otherPicker != nil) {
-								 [otherPicker togglePickerWithAdditionalView:view];
-							 }
-						 }
-		 ];
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:ANIMATION_DURATION];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(pickerAnimatedVisible)];
+
+        self.frame = CGRectOffset(self.frame, 0, -self.frame.size.height);
+        view.frame = CGRectOffset(view.frame, 0, -self.frame.size.height);
+        
+        [UIView commitAnimations];
 	}
 	else {		
 		//animate picker off screen
-		[UIView animateWithDuration:ANIMATION_DURATION 
-							  delay:0 
-							options:UIViewAnimationOptionCurveEaseOut
-						 animations:^{
-							 self.frame = CGRectOffset(self.frame, 0, self.frame.size.height);
-							 view.frame = CGRectOffset(view.frame, 0, self.frame.size.height);
-						 }
-						 completion:^(BOOL finished){
-							 [self setHidden:YES];
-							 if (otherPicker != nil) {
-								 [otherPicker togglePickerWithAdditionalView:view];
-							 }
-						 }
-		 ];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:ANIMATION_DURATION];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(pickerAnimatedHidden)];
+        
+        self.frame = CGRectOffset(self.frame, 0, self.frame.size.height);
+        view.frame = CGRectOffset(view.frame, 0, self.frame.size.height);
+
+        [UIView commitAnimations];
 	}
+}
+
+- (void)pickerAnimatedHidden{
+    NSLog(@"picker is hidden!");
+    [self setHidden:YES];
+    if ([self otherPicker] != nil) {
+        [[self otherPicker] togglePickerWithAdditionalView:[self auxView]];
+        _otherPicker = nil;
+        _auxView = nil;
+    }
+}
+         
+- (void)pickerAnimatedVisible{
+    NSLog(@"Picker is visible!");
+    [self setHidden:NO];
+    if ([self otherPicker] != nil) {
+        [[self otherPicker] togglePickerWithAdditionalView:[self auxView]];
+        _otherPicker = nil;
+        _auxView = nil;
+    }
+    
 }
 
 - (void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker{

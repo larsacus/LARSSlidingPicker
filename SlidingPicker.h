@@ -31,13 +31,19 @@
 
 @interface SlidingPicker : UIPickerView {
 	BOOL hidden;
+    UIView *_auxView;
+    SlidingPicker *_otherPicker;
 }
 @property (nonatomic, getter=isHidden) BOOL hidden;
+@property (nonatomic, assign) UIView *auxView;
+@property (nonatomic, assign) SlidingPicker *otherPicker;
 
 -(id)initWithHeight:(CGFloat)height;
 -(void)togglePicker;
 - (void)togglePickerWithAdditionalView:(UIView *)view;
 - (void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker;
 -(void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker withAdditionalView:(UIView *)view;
+- (void)pickerAnimatedHidden;
+- (void)pickerAnimatedVisible;
 
 @end
