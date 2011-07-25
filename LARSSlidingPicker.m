@@ -1,5 +1,5 @@
 //
-//  SlidingPicker.m
+//  LARSSlidingPicker.m
 //  RealLED
 //
 //  Created by Lars Anderson on 11/9/10.
@@ -29,10 +29,10 @@
 
 #define ANIMATION_DURATION 0.15
 
-#import "SlidingPicker.h"
+#import "LARSSlidingPicker.h"
 
 
-@implementation SlidingPicker
+@implementation LARSSlidingPicker
 
 @synthesize hidden;
 @synthesize otherPicker = _otherPicker;
@@ -57,7 +57,7 @@
 	return [self initWithFrame:CGRectMake(0.0f, 460.0f, 320.0f, height)];
 }
 
--(void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker withAdditionalView:(UIView *)view{
+-(void)togglePickerBeforeToggling:(LARSSlidingPicker *)otherPicker withAdditionalView:(UIView *)view{
 	[self setAuxView:view];
     [self setOtherPicker:otherPicker];
 	if ([self isHidden]) {
@@ -110,7 +110,7 @@
     
 }
 
-- (void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker{
+- (void)togglePickerBeforeToggling:(LARSSlidingPicker *)otherPicker{
 	[self togglePickerBeforeToggling:otherPicker withAdditionalView:nil];
 }
 

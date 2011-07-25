@@ -1,5 +1,5 @@
 //
-//  SlidingPicker.h
+//  LARSSlidingPicker.h
 //  Droid Light
 //
 //  Created by Lars Anderson on 11/9/10.
@@ -29,20 +29,21 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SlidingPicker : UIPickerView {
-	BOOL hidden;
+@interface LARSSlidingPicker : UIPickerView {
+@private
+	BOOL _hidden;
     UIView *_auxView;
-    SlidingPicker *_otherPicker;
+    LARSSlidingPicker *_otherPicker;
 }
 @property (nonatomic, getter=isHidden) BOOL hidden;
 @property (nonatomic, assign) UIView *auxView;
-@property (nonatomic, assign) SlidingPicker *otherPicker;
+@property (nonatomic, assign) LARSSlidingPicker *otherPicker;
 
 -(id)initWithHeight:(CGFloat)height;
 -(void)togglePicker;
 - (void)togglePickerWithAdditionalView:(UIView *)view;
-- (void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker;
--(void)togglePickerBeforeToggling:(SlidingPicker *)otherPicker withAdditionalView:(UIView *)view;
+- (void)togglePickerBeforeToggling:(LARSSlidingPicker *)otherPicker;
+-(void)togglePickerBeforeToggling:(LARSSlidingPicker *)otherPicker withAdditionalView:(UIView *)view;
 - (void)pickerAnimatedHidden;
 - (void)pickerAnimatedVisible;
 
