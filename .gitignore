@@ -1,0 +1,7 @@
+.DS_Store
+._*
+*.swp
+.svn
+.hg
+log/*.log
+tmp/**
