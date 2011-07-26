@@ -11,10 +11,10 @@ The Sliding Picker adds the following new features above the standard `UIPicker`
 ## Usage
 
 1. Create the Sliding Picker just like you would a normal `UIPicker` (create variable, set delegate, etc.)
-```Objective-C
+```ansi-c
 [[LARSSlidingPicker alloc] initWithHeight:300];
 ```
-```ObjectiveC
+```ansic
 [[LARSSlidingPicker alloc] initWithHeight:300];
 ```
 ```c
