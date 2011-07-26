@@ -5,24 +5,24 @@
 The Sliding Picker adds the following new features above the standard `UIPicker` class:
 
 1. Provides the UIPicker class with the ability to be called and mimic the look/feel of the standard keyboard.  The picker will slide onto the screen from the bottom just like the native iPhone keyboard.
-2. Ability to be toggled with a second LARSSlidingPicker.  When toggled with a second picker, the first picker will be dismissed just like the native iPhone keyboard while the new picker is toggled on-screen in the same manner.  This can also be paired with a UIView as in #3.
+2. Ability to be toggled with a second `LARSSlidingPicker`.  When toggled with a second picker, the first picker will be dismissed just like the native iPhone keyboard while the new picker is toggled on-screen in the same manner.  This can also be paired with a UIView as in #3.
 3. Ability to have a `UIView` ride on top of the sliding picker (in my case, this was an iAd `ADBannerView`).
 
 ## Usage
 
 1. Create the Sliding Picker just like you would a normal `UIPicker` (create variable, set delegate, etc.)
-    ```c++
+    ````c++
     [[LARSSlidingPicker alloc] initWithHeight:300];
-    ```
+    ````
 2. By default, the picker is created off-screen (if you have a status bar). Need to add support for all types of view containers.
 3. To use the picker with another `LARSSlidingPicker`, create another `LARSSlidingPicker` and call the
-    ``` c
+    ```` c
     [picker togglePickerWithOtherPicker:otherPicker];
-    ```
+    ````
 4. You can alternatively toggle the picker with a riding view on top
-    ```javascript
+    ````javascript
     [picker togglePickerWithOtherPicker:otherPicker withView:[self adBanner]];
-    ```
+    ````
 
 ## License
 Copyright (c) 2011 Lars Anderson, drink&apple
