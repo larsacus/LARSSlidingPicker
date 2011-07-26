@@ -11,18 +11,18 @@ The Sliding Picker adds the following new features above the standard `UIPicker`
 ## Usage
 
 1. Create the Sliding Picker just like you would a normal `UIPicker` (create variable, set delegate, etc.)
-```c++
-[[LARSSlidingPicker alloc] initWithHeight:300];
-```
+    ```c++
+    [[LARSSlidingPicker alloc] initWithHeight:300];
+    ```
 2. By default, the picker is created off-screen (if you have a status bar). Need to add support for all types of view containers.
 3. To use the picker with another `LARSSlidingPicker`, create another `LARSSlidingPicker` and call the
-``` c
-[picker togglePickerWithOtherPicker:otherPicker];
-```
+    ``` c
+    [picker togglePickerWithOtherPicker:otherPicker];
+    ```
 4. You can alternatively toggle the picker with a riding view on top
-```javascript
-[picker togglePickerWithOtherPicker:otherPicker withView:[self adBanner]];
-```
+    ```javascript
+    [picker togglePickerWithOtherPicker:otherPicker withView:[self adBanner]];
+    ```
 
 ## License
 Copyright (c) 2011 Lars Anderson, drink&apple
