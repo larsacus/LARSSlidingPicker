@@ -1,8 +1,8 @@
 #LARSSlidingPicker
 
 ## Description
-'LARSSlidingPicker' is a subclass of UIPicker that supports pairing with another 'LARSSlidingPicker' to support chained toggling.  The sliding picker was designed to eliminate the need for a second page to grab input from a 'UIPicker'.
-The Sliding Picker adds the following new features above the standard 'UIPicker' class:
+'''LARSSlidingPicker''' is a subclass of UIPicker that supports pairing with another '''LARSSlidingPicker''' to support chained toggling.  The sliding picker was designed to eliminate the need for a second page to grab input from a '''UIPicker'''.
+The Sliding Picker adds the following new features above the standard '''UIPicker''' class:
 
 1. Provides the UIPicker class with the ability to be called and mimic the look/feel of the standard keyboard.  The picker will slide onto the screen from the bottom just like the native iPhone keyboard.
 2. Ability to be toggled with a second LARSSlidingPicker.  When toggled with a second picker, the first picker will be dismissed just like the native iPhone keyboard while the new picker is toggled on-screen in the same manner.  This can also be paired with a UIView as in #3.
@@ -11,18 +11,18 @@ The Sliding Picker adds the following new features above the standard 'UIPicker'
 ## Usage
 
 1. Create the Sliding Picker just like you would a normal 'UIPicker' (create variable, set delegate, etc.)
-        '''objective-c
-        [[LARSSlidingPicker alloc] initWithHeight:300];
-        '''
+'''objective-c
+[[LARSSlidingPicker alloc] initWithHeight:300];
+'''
 2. By default, the picker is created off-screen (if you have a status bar). Need to add support for all types of view containers.
 3. To use the picker with another 'LARSSlidingPicker', create another 'LARSSlidingPicker' and call the
-        '''objective-c
-        [picker togglePickerWithOtherPicker:otherPicker];
-        '''
+'''objective-c
+[picker togglePickerWithOtherPicker:otherPicker];
+'''
 4. You can alternatively toggle the picker with a riding view on top
-        '''objective-c
-        [picker togglePickerWithOtherPicker:otherPicker withView:[self adBanner]];
-        '''
+'''objective-c
+[picker togglePickerWithOtherPicker:otherPicker withView:[self adBanner]];
+'''
 
 ## License
 Copyright (c) 2011 Lars Anderson, drink&apple
