@@ -34,7 +34,7 @@
 
 @implementation LARSSlidingPicker
 
-@synthesize hidden;
+@synthesize hidden = _hidden;
 @synthesize otherPicker = _otherPicker;
 @synthesize auxView = _auxView;
 
