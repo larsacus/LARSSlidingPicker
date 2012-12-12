@@ -32,12 +32,12 @@
 @interface LARSSlidingPicker : UIPickerView {
 @private
 	BOOL _hidden;
-    UIView *_auxView;
-    LARSSlidingPicker *_otherPicker;
+    UIView *__weak _auxView;
+    LARSSlidingPicker *__weak _otherPicker;
 }
 @property (nonatomic, getter=isHidden) BOOL hidden;
-@property (nonatomic, assign) UIView *auxView;
-@property (nonatomic, assign) LARSSlidingPicker *otherPicker;
+@property (nonatomic, weak) UIView *auxView;
+@property (nonatomic, weak) LARSSlidingPicker *otherPicker;
 
 -(id)initWithHeight:(CGFloat)height;
 -(void)togglePicker;

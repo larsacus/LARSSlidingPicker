@@ -122,10 +122,5 @@
 	[self togglePickerBeforeToggling:nil withAdditionalView:nil];
 }
 
-- (void)dealloc {
-    [super dealloc];
-	self = nil;
-}
-
 
 @end
