@@ -45,6 +45,7 @@
         // Initialization code.
 		self.frame = frame;
 		[self setHidden:YES];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
