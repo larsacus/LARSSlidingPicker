@@ -6,10 +6,10 @@ Pod::Spec.new do |s|
 	s.author = {
 		'Lars Anderson' => 'iAm@theonlylars.com'
 	}
-	s.license = {:type => 'MIT', :file => 'LICENSE'}
+	s.license = {:type => 'MIT'}
 	s.platform = :ios, '5.0'
 	s.source = {
-		:git => 'https://github.com/larsacus/LARSSlidingPicker.git'
+		:git => 'git@github.com:larsacus/LARSSlidingPicker.git',
 		:tag => s.version.to_s
 	}
 	s.requires_arc = true
